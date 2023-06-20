@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card .pokemon-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.card .pokemon-name {
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */
