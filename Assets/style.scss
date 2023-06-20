@@ -48,14 +48,16 @@ body {
     border-color: white;
   }
 
-  &-info {
+  &-title {
     padding: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
   }
 
   &-type {
     display: flex;
     justify-content: center;
+    font-style: italic;
 
     &.fire {
       background-color: $fire-color;

@@ -37,13 +37,15 @@ body {
   transform: translateY(-5px);
   border-color: white;
 }
-.card-info {
+.card-title {
   padding: 8px;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 .card-type {
   display: flex;
   justify-content: center;
+  font-style: italic;
 }
 .card-type.fire {
   background-color: #ff5722;
