@@ -49,13 +49,28 @@ debugFuncion();
 //input: null
 //output: null
 const cardHTML = (pokemon) => {
-    return `<div class="card" style="width: 18rem;">
-            <img src="${pokemon.sprites.other.dream_world.front_default}" class="card-img-top" alt="${pokemon.name}">
-            <div class="card-body">
-                <h4 class="card-title text-center">${pokemon.name}</h4>
-            </div>
-          </div>`;
+    let html = `<div class="card" style="width: 18rem;">
+                <img src="${pokemon.sprites.other.home.front_default}" class="card-img-top" alt="${pokemon.name}">
+                <div class="card-body">
+                  <h4 class="card-title text-center">${pokemon.name}</h4>
+                  <div class="card-types">`;
+
+    if (pokemon.types.length === 1) {
+        html += `<p class="card-text text-center card-type ${pokemon.types[0].type.name}">[${pokemon.types[0].type.name}]</p>`;
+    } else if (pokemon.types.length === 2) {
+        html += `<p class="card-text text-center card-type ${pokemon.types[0].type.name}">[${pokemon.types[0].type.name}] </p>`;
+        html += `<p class="card-text text-center card-type ${pokemon.types[1].type.name}"> [${pokemon.types[1].type.name}]</p>`;
+    }
+
+    html += `</div>
+          </div>
+        </div>`;
+
+    return html;
 };
+
+
+
 
 
 //description : Funcion que recorre para hacer las card de los pokemon
