@@ -42,10 +42,38 @@ const debugFuncion = async () => {
         console.log(error);
     }
 };
-
 // para probar que la api funciona
 debugFuncion();
 
-//description : Funcion que crea un elemento HTML
+//description : Funcion que crea las cards de los pokemon
 //input: null
 //output: null
+const cardHTML = (pokemon) => {
+    return `<div class="card" style="width: 18rem;">
+            <img src="${pokemon.sprites.other.dream_world.front_default}" class="card-img-top" alt="${pokemon.name}">
+            <div class="card-body">
+                <h4 class="card-title text-center">${pokemon.name}</h4>
+            </div>
+          </div>`;
+};
+
+
+//description : Funcion que recorre para hacer las card de los pokemon
+//input: null
+//output: null
+const crearPokemonHTML = async () => {
+    try {
+        const resultados = await pokemones();
+        const contenedor = document.querySelector("#pokemon");
+        // para cada pokemon en la lista de resultados
+        for (let i = 0; i < resultados.length; i++) {
+            const pokemon = await infoPokemon(resultados[i].url);
+            //'beforeend', es un valor de posición que indica que el HTML se insertará como el último elemento
+            contenedor.insertAdjacentHTML('beforeend', cardHTML(pokemon));
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+//aplicar la funcion 
+crearPokemonHTML();
